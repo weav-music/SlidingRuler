@@ -29,21 +29,36 @@
 
 import SwiftUI
 
-struct BlankCenteredCellBody: NativeRulerCellView {
-    var mark: CGFloat
-    var bounds: ClosedRange<CGFloat>
-    var step: CGFloat
-    var cellWidth: CGFloat
+public struct BlankCenteredCellBody: NativeRulerCellView {
+    public var mark: CGFloat
+    public var bounds: ClosedRange<CGFloat>
+    public var step: CGFloat
+    public var cellWidth: CGFloat
 
-    var scale: some ScaleView { CenteredScaleView(width: cellWidth, height: 40) }
+    public var scale: some ScaleView { CenteredScaleView(width: cellWidth, height: 40) }
+
+    public init(mark: CGFloat, bounds: ClosedRange<CGFloat>, step: CGFloat, cellWidth: CGFloat) {
+        self.mark = mark
+        self.bounds = bounds
+        self.step = step
+        self.cellWidth = cellWidth
+    }
 }
 
-struct CenteredCellBody: NativeMarkedRulerCellView {
-    var mark: CGFloat
-    var bounds: ClosedRange<CGFloat>
-    var step: CGFloat
-    var cellWidth: CGFloat
-    var numberFormatter: NumberFormatter?
+public struct CenteredCellBody: NativeMarkedRulerCellView {
+    public var mark: CGFloat
+    public var bounds: ClosedRange<CGFloat>
+    public var step: CGFloat
+    public var cellWidth: CGFloat
+    public var numberFormatter: NumberFormatter?
 
-    var cell: some RulerCellView { BlankCenteredCellBody(mark: mark, bounds: bounds, step: step, cellWidth: cellWidth) }
+    public var cell: some RulerCellView { BlankCenteredCellBody(mark: mark, bounds: bounds, step: step, cellWidth: cellWidth) }
+
+    public init(mark: CGFloat, bounds: ClosedRange<CGFloat>, step: CGFloat, cellWidth: CGFloat, numberFormatter: NumberFormatter?) {
+        self.mark = mark
+        self.bounds = bounds
+        self.step = step
+        self.cellWidth = cellWidth
+        self.numberFormatter = numberFormatter
+    }
 }

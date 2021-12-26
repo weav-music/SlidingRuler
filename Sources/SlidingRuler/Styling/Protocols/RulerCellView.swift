@@ -43,16 +43,16 @@ public protocol RulerCellView: FractionableView, Equatable {
     var maskShape: MaskShape { get }
 }
 
-extension RulerCellView {
+public extension RulerCellView {
     static var fractions: Int { Scale.fractions }
 
-    var cellBounds: ClosedRange<CGFloat> {
+    public var cellBounds: ClosedRange<CGFloat> {
         ClosedRange(uncheckedBounds: (mark - step / 2, mark + step / 2))
     }
 
-    var isComplete: Bool { bounds.contains(cellBounds) }
+    public var isComplete: Bool { bounds.contains(cellBounds) }
 
-    var body: some View {
+    public var body: some View {
         ZStack {
             scale
                 .equatable()
@@ -65,7 +65,7 @@ extension RulerCellView {
         .frame(width: cellWidth)
     }
 
-    static func ==(_ lhs: Self, _ rhs: Self) -> Bool {
+    public static func ==(_ lhs: Self, _ rhs: Self) -> Bool {
         lhs.isComplete && rhs.isComplete
     }
 }
