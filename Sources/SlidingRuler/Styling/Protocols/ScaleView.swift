@@ -45,7 +45,7 @@ public protocol ScaleView: FractionableView, Equatable {
     var fractionMarkOffset: CGFloat { get }
 }
 
-extension ScaleView {
+public extension ScaleView {
     var body: some View {
         shape
             .frame(size: .init(width: width, height: height))
@@ -56,7 +56,7 @@ extension ScaleView {
     var halfMarkOffset: CGFloat { 0 }
     var fractionMarkOffset: CGFloat { 0 }
 
-    static func ==(lhs: Self, rhs: Self) -> Bool {
+    public static func ==(lhs: Self, rhs: Self) -> Bool {
         lhs.width == rhs.width && lhs.height == rhs.height
     }
 }
